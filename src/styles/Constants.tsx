@@ -28,6 +28,13 @@ const gap = {
   xxLarge: '3rem',
 };
 
+const borderRadius = {
+  small: '5px',
+  medium: '8px',
+  round: '50%',
+};
 
-export { color, gap, padding };
+
+
+export { borderRadius, color, gap, padding };
 
