@@ -48,6 +48,10 @@ I was a bit unsure with the styles if I should break them all out into their own
 
 I also tried to use a constants file that is inside the styles folder, this way we can keep some consistency, I also wanted to use descriptive words for the variables when picking them, this way to me it's easier to understand what they're meant for.
 
+#### Loading, etc
+
+Could do a whole heap more for loading, like with the list coming in. Make a nice loading state, take the JSX that's already getting a little messy and bring that out, so that we can display loading, empty, error, and the list.
+
 ### Testing
 
 After the basic components I wanted to get in some tests, and finally the GraphQL API.

@@ -24,13 +24,21 @@ const isUserRole = (role: string): role is UserRole => {
 function App() {
   const [userSelection, setUserSelection] = useState<UserRole>(UserRole.Admin)
   const [userList, setUserList] = useState<UserData[]>([])
+  const [isLoading, setIsLoading] = useState(false);
 
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchZellaData()
-      if (data) {
-        setUserList(data)
+      setIsLoading(true);
+      try {
+        const data = await fetchZellaData()
+        if (data) {
+          setUserList(data)
+        } else {
+          setUserList([]);
+        }
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchData()
@@ -57,9 +65,12 @@ function App() {
       <Divider />
       <Section gap='medium'>
         <Heading content={`${userSelection} users`} type='h2' />
-        {filteredUserList.map((user) => (
-          <User {...user} />
-        ))}
+        {isLoading && <p>Loading users...</p>}
+        {!isLoading && (
+          filteredUserList.map((user) => (
+            <User {...user} key={user.id} />
+          ))
+        )}
       </Section>
       <Divider />
     </Layout>

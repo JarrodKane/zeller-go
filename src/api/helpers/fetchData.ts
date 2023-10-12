@@ -28,6 +28,13 @@ export const fetchZellaData = async (): Promise<UserData[] | undefined> => {
       requestOptions
     );
     const data = await response.json();
+
+    // These would be API errors that we normally dom't want to show to the client
+    if (data.errors) {
+      const errorMessage = data.errors[0].message;
+      throw new Error(errorMessage);
+    }
+
     return data.data.listZellerCustomers.items;
   } catch (error) {
     console.error('Error:', error);
