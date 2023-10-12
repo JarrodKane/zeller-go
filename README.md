@@ -9,6 +9,10 @@ Styling is made with Styled Components.
 ```bash
    npm i // install dependencies
    npm run dev // run the app
+
+   # Testing
+   npx cypress open
+
 ```
 
 ### Todo
@@ -16,11 +20,11 @@ Styling is made with Styled Components.
 - [ ] Testing - Cypress
   - [ ] Component testing
   - [ ] E2E testing (Flow)
-- [ ] Styling - Styled Components
-- [ ] SPA - React/Vite
-  - [ ] Reactivity - User selection
-- [ ] Call API - GraphQL
-- [ ] Documentation
+- [x] Styling - Styled Components
+- [x] SPA - React/Vite
+  - [x] Reactivity - User selection
+- [x] Call API - GraphQL
+- [x] Documentation
 
 ## Zeller Coding Challenge Approach
 
@@ -29,15 +33,34 @@ This gave me the boilerplate, from there I have created some folders to house so
 
 The above also goes for files such as the constants inside the Styles folder, for this size app it would be overkill, but I wanted to make sure if it kept growing that there would be a direction on how to maintain the code.
 
-To start with I created basic components, this was to get back into the jist of using react. One main thing I have to focus on is to make sure components stay focused on what they're meant for, and not to add too much logic into them.
+### Basics
+
+To start with I created basic components, this was to get back into the gist of using react. One main thing I have to focus on is to make sure components stay focused on what they're meant for, and not to add too much logic into them.
+
 I would prefer to have specific components that only take very specific props, this way I know what it's meant to do and why.
 For example with the SelectRadio, you could make a component that's more generic, but that might lead to over engineering it.
 
+I did not make a pages file since it's a single page app, I was thinking about creating one and breaking the app out into it's home page and the like, for now the App.tsx holds everything as the parent and brings it all in.
+
+### Styling
+
 I was a bit unsure with the styles if I should break them all out into their own files, in the end I only did it for files that were getting a bit longer such as the SelectRadio to have its own styles.ts file.
+
+I also tried to use a constants file that is inside the styles folder, this way we can keep some consistency, I also wanted to use descriptive words for the variables when picking them, this way to me it's easier to understand what they're meant for.
+
+### Testing
 
 After the basic components I wanted to get in some tests, and finally the GraphQL API.
 
 I have not used Cypress before but have used other testing libraries. I wanted some basic component testing but nothing overboard, and one e2e test to just show the flow of getting on and selecting options.
+
+### GraphQL
+
+I decided to for this project make a folder called API and have the AWS, GraphQL and Typescript files in there.
+
+I have a useEffect in my App.tsx file that grabs the data and then places it into state.
+
+I was thinking for this one that we should have some secrets hidden away.
 
 ---
 

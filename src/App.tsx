@@ -55,12 +55,13 @@ function App() {
         <SelectRadio selected={userSelection} list={selectionList} handleSelection={handleSelection} group='roles' />
       </Section>
       <Divider />
-      <Section>
+      <Section gap='medium'>
         <Heading content={`${userSelection} users`} type='h2' />
         {filteredUserList.map((user) => (
           <User {...user} />
         ))}
       </Section>
+      <Divider />
     </Layout>
   )
 }

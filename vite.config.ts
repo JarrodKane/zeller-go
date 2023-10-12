@@ -8,6 +8,7 @@ const aliasConfig = {
   '@styles': path.resolve(__dirname, '/src/styles'),
   '@components': path.resolve(__dirname, '/src/components'),
   '@utils': path.resolve(__dirname, '/src/utils'),
+  '@gql': path.resolve(__dirname, '/src/api/graphql'),
 };
 
 // https://vitejs.dev/config/

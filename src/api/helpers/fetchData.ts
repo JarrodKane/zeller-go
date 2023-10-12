@@ -1,5 +1,5 @@
+import { ListZellerCustomers } from '@gql/getCustomers.ts';
 import awsconfig from '../aws/config.js';
-import { ListZellerCustomers } from '../graphql/getCustomers.gql';
 
 export type UserData = {
   email: string;

@@ -1,4 +1,4 @@
-import { CustomRadio, Label, SelectWrapper } from './styles';
+import * as S from './styles';
 
 type SelectRadioProps = {
   selected?: string;
@@ -14,8 +14,8 @@ export default function SelectRadio(props: SelectRadioProps) {
   const ListEl = list.map((option, index) => {
     selectedRole = selected === option
     return (
-      < Label key={index} checked={selectedRole}>
-        <CustomRadio
+      < S.Label key={index} checked={selectedRole}>
+        <S.CustomRadio
           type="radio"
           value={option}
           name={group}
@@ -23,15 +23,15 @@ export default function SelectRadio(props: SelectRadioProps) {
           checked={selectedRole}
         />
         {option}
-      </Label >
+      </S.Label >
     )
   }
   )
 
 
   return (
-    <SelectWrapper>
+    <S.SelectWrapper>
       {ListEl}
-    </SelectWrapper>
+    </S.SelectWrapper>
   );
 }

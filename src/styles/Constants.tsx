@@ -9,6 +9,7 @@ const color = {
   dark: '#343a40',
   selectHover: '#0056b3',
   selectSelected: '#78C5FF',
+  divider: '#D4D4D4',
 };
 
 
@@ -27,6 +28,8 @@ const gap = {
   xLarge: '1.5rem',
   xxLarge: '3rem',
 };
+
+
 
 const borderRadius = {
   small: '5px',

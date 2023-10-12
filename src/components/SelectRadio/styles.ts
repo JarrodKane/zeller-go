@@ -1,4 +1,4 @@
-import { color, gap } from '@styles/Constants';
+import { borderRadius, color, gap } from '@styles/Constants';
 import styled from 'styled-components';
 
 type LabelProps = {
@@ -20,7 +20,7 @@ export const Label = styled.label<LabelProps>`
   gap: ${gap.small};
   flex-grow: 1;
   width: 100%;
-  border-radius: 5px;
+  border-radius: ${borderRadius.small};
   cursor: pointer;
 
   // only apply hover if not checked
