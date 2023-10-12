@@ -1,67 +1,33 @@
-import { color, gap } from '@styles/Constants';
-import styled from 'styled-components';
+import { CustomRadio, Label, SelectWrapper } from './styles';
 
 type SelectRadioProps = {
-  selected?: number;
+  selected?: string;
   list: string[];
-  handleSelection: (selection: number) => void;
+  handleSelection: (selection: string) => void;
+  group: string;
 };
 
-type LabelProps = {
-  checked?: boolean;
-}
-
-const SelectWrapper = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: ${gap.small};
-  width: 100%;
-`;
-
-const Label = styled.label<LabelProps>`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: ${gap.small};
-  flex-grow: 1;
-  width: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-
-  // only apply hover if not checked
-  ${({ checked }) => !checked && ` 
-    &:hover {
-      background-color: ${color.selectHover};
-    }
-  `}
-
-  ${({ checked }) => checked && ` 
-    background-color:  ${color.selectSelected};
-  `}
-`;
-
-const CustomRadio = styled.input`
-  width: 20px;
-  height: 20px;
-  margin: 10px;
-`;
-
 export default function SelectRadio(props: SelectRadioProps) {
-  const { selected = 0, list, handleSelection } = props;
+  const { selected, list, handleSelection, group } = props;
+  let selectedRole = false
 
-  const ListEl = list.map((option, index) => (
-    <Label key={index} checked={selected === index}>
-      <CustomRadio
-        type="radio"
-        value={option}
-        name='roles'
-        onChange={() => handleSelection(index)}
-        checked={selected === index}
-      />
-      {option}
-    </Label>
-  ));
+  const ListEl = list.map((option, index) => {
+    selectedRole = selected === option
+    return (
+      < Label key={index} checked={selectedRole}>
+        <CustomRadio
+          type="radio"
+          value={option}
+          name={group}
+          onChange={() => handleSelection(option)}
+          checked={selectedRole}
+        />
+        {option}
+      </Label >
+    )
+  }
+  )
+
 
   return (
     <SelectWrapper>
