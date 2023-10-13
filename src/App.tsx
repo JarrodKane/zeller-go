@@ -52,7 +52,7 @@ function App() {
     }
   }
 
-  const filteredUserList = userList.filter((user) => user.role === userSelection.toUpperCase());
+  const filteredUserList = userList?.filter((user) => user?.role === userSelection.toUpperCase());
 
 
   return (

@@ -1,26 +1,38 @@
 import * as S from './styles';
 
 type SelectRadioProps = {
-  selected?: string;
+  selected: string;
   list: string[];
   handleSelection: (selection: string) => void;
   group: string;
 };
 
 export default function SelectRadio(props: SelectRadioProps) {
-  const { selected, list, handleSelection, group } = props;
-  let selectedRole = false
+  const { list, handleSelection, group } = props;
+  let { selected } = props
+
+  if (!selected) {
+    selected = list[0]
+  }
+
+  if (!list || list.length === 0) {
+    return (
+      <S.SelectWrapper>
+        No list provided
+      </S.SelectWrapper>
+    )
+  }
 
   const ListEl = list.map((option, index) => {
-    selectedRole = selected === option
+    const isChecked = selected === option
     return (
-      < S.Label key={index} checked={selectedRole}>
+      < S.Label key={index} checked={isChecked}>
         <S.CustomRadio
           type="radio"
           value={option}
           name={group}
           onChange={() => handleSelection(option)}
-          checked={selectedRole}
+          checked={isChecked}
         />
         {option}
       </S.Label >
