@@ -26,7 +26,7 @@ export default function SelectRadio(props: SelectRadioProps) {
   const ListEl = list.map((option, index) => {
     const isChecked = selected === option
     return (
-      < S.Label key={index} checked={isChecked}>
+      < S.Label key={index} checked={isChecked} data-testid={`radio-${index}`}>
         <S.CustomRadio
           type="radio"
           value={option}
@@ -42,7 +42,7 @@ export default function SelectRadio(props: SelectRadioProps) {
 
 
   return (
-    <S.SelectWrapper>
+    <S.SelectWrapper data-testid={`select-${group}`}>
       {ListEl}
     </S.SelectWrapper>
   );

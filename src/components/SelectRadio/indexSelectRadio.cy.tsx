@@ -9,9 +9,7 @@ describe('<SelectRadio />', () => {
       selectedRole = selection;
     }
 
-    // Mount the component with the list prop
     cy.mount(<SelectRadio list={options} handleSelection={handleSelection} selected={selectedRole} group={'test'} />);
-
 
     cy.get('input[type="radio"]').should('have.length', options.length);
     cy.get('input[type="radio"]').eq(1).should('be.checked');

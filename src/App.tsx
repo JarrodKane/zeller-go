@@ -9,6 +9,7 @@ import Section from './components/UI/Section'
 import User from './components/User'
 import './styles/App.css'
 
+
 enum UserRole {
   Admin = 'Admin',
   Manager = 'Manager',
@@ -26,7 +27,8 @@ function App() {
   const [userList, setUserList] = useState<UserData[]>([])
   const [isLoading, setIsLoading] = useState(false);
 
-
+  // UseEffect being called on load to grab all the data and put it where it belongs
+  // Setting a loading state as well that'll not really be seen, I think there could be more done with loading and failed states
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -52,7 +54,7 @@ function App() {
     }
   }
 
-  const filteredUserList = userList?.filter((user) => user?.role === userSelection.toUpperCase());
+  const filteredUserList = userList?.filter((user) => user?.role === userSelection.toUpperCase()) ?? [];
 
 
   return (
@@ -63,7 +65,7 @@ function App() {
         <SelectRadio selected={userSelection} list={selectionList} handleSelection={handleSelection} group='roles' />
       </Section>
       <Divider />
-      <Section gap='medium'>
+      <Section $gap='medium' dataTest='section-user'>
         <Heading content={`${userSelection} users`} type='h2' />
         {isLoading && <p>Loading users...</p>}
         {!isLoading && (

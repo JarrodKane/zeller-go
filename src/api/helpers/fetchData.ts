@@ -5,7 +5,7 @@ export type UserData = {
   email: string;
   id: string;
   name: string;
-  role: 'ADMIN' | 'MANAGER'; // Assuming 'role' can only be 'ADMIN' or 'MANAGER'
+  role: 'ADMIN' | 'MANAGER';
 };
 
 export const fetchZellaData = async (): Promise<UserData[] | undefined> => {

@@ -10,16 +10,16 @@ Styling is made with Styled Components.
    npm i // install dependencies
    npm run dev // run the app
 
-   # Testing
+   # Testing - Please make sure the app is running if you are going to run the e2e tests
    npx cypress open
 
 ```
 
 ### Todo
 
-- [ ] Testing - Cypress
-  - [ ] Component testing
-  - [ ] E2E testing (Flow)
+- [x] Testing - Cypress
+  - [x] Component testing
+  - [x] E2E testing (Flow)
 - [x] Styling - Styled Components
 - [x] SPA - React/Vite
   - [x] Reactivity - User selection
@@ -44,19 +44,22 @@ I did not make a pages file since it's a single page app, I was thinking about c
 
 ### Styling
 
-I was a bit unsure with the styles if I should break them all out into their own files, in the end I only did it for files that were getting a bit longer such as the SelectRadio to have its own styles.ts file.
+I was a bit unsure with the styles if I should break them all out into their own files, in the end I only did it for files that were getting a bit longer such as the SelectRadio to have its own styles.ts file. I would then import the styles using the prefix S this shows you quickly that the component is using styled components.
 
-I also tried to use a constants file that is inside the styles folder, this way we can keep some consistency, I also wanted to use descriptive words for the variables when picking them, this way to me it's easier to understand what they're meant for.
+I also tried to use a constants file that is inside the styles folder, this way we can keep some consistency, I wanted to use descriptive words for the variables when picking them, this way to me it's easier to understand what they're meant for.
+
+It's been a while since I've used styled-components I was a little unsure about transient props that I had to use in the section element in order to remove a warning.
 
 #### Loading, etc
 
-Could do a whole heap more for loading, like with the list coming in. Make a nice loading state, take the JSX that's already getting a little messy and bring that out, so that we can display loading, empty, error, and the list.
+Could do a whole more work on the loading, like with the list coming in. Make a nice loading state, take the JSX that's already getting a little messy and bring that out, so that we can display loading, empty, error, and the list.
 
 ### Testing
 
-After the basic components I wanted to get in some tests, and finally the GraphQL API.
+Since we are using vite the default port run will be `5173` so when running the tests please run the application with npm run dev, it should show you the port you are running on as 5173 unless another app is using that port. The E2E tests will fail if the app is not running.
 
 I have not used Cypress before but have used other testing libraries. I wanted some basic component testing but nothing overboard, and one e2e test to just show the flow of getting on and selecting options.
+It was pretty nice to use and quick to set up for component testing, this spurred me on to make some components more safe.
 
 ### GraphQL
 
@@ -66,35 +69,13 @@ I have a useEffect in my App.tsx file that grabs the data and then places it int
 
 I was thinking for this one that we should have some secrets hidden away.
 
+### Could do with
+
+- More robust testing
+- Mock data for testing
+- Better loading states
+- Better error handling
+- Better typescript and typescript handling
+- App.tsx file could be broken out into smaller components and functions
+
 ---
-
-This coding challenge is to build a simple react app with Typescript (optional), integrated
-with GraphQL APIs. For simplicity, the react app has been restricted to one screen.
-
-Need to build a simple react app in Typescript to show Zeller customers. Customers
-should be fetched with the GraphQL APIs provided.
-List of customers need to be filtered based on the selection of user type -
-Admin/Manager.
-● Radio button selection of `Admin` should list admin customers as per the design.
-● If the selection is `Manager`, customers with a role `Manager` need to be listed.
-Please refer to the design attached for the UI - zeller-customers-design.png.
-RECOMMENDATIONS
-
-1. Use ‘Create React App’ for Typescript for the project setup. No need to set the
-   project up from the scratch
-2. Use a familiar UI library such as Styled-Components if required. No need to be
-   pixel perfect with the design.
-3. GraphQL APIs are hosted in AWS. Use the attached aws-exports file for
-   configurations. Authentication type is API-KEY.
-4. Refer attached ‘graphql/queries.ts’ for queries.
-   1
-   ZELLER CHECKLIST
-5. Proper test coverage
-6. Best practises for performance optimisation
-7. Code quality
-8. Quality and Responsive UI
-9. Documentation describing the approach and setup guidelines.
-   RESOURCES PROVIDED
-10. Design for the required screen -- zeller-customers-design.png.
-11. GraphQL folder with queries.
-12. Configuration file to use AWS AppSync GraphQL APIs -- aws-exports.js
